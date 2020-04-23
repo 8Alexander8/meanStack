@@ -8,15 +8,14 @@ import { AuthService } from "./../../shared/auth.service";
   styleUrls: ["./top-nav.component.css"],
 })
 export class TopNavComponent implements OnInit {
-  id: string;
+  id: string =localStorage.getItem("UID");
   constructor(
     public authService: AuthService,
     private actRoute: ActivatedRoute
   ) {}
 
   ngOnInit() {
-    this.id = localStorage.getItem("UID");
-    console.log(this.id);
+ 
   }
   logout() {
     this.authService.doLogout();
