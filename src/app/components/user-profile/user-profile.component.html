@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card shadow-lg mt-5">
+        <div class="card-header text-center">
+          User Details
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-6">
+              <p><strong>Name:</strong> {{ currentUser.name }}</p>
+              <p><strong>Email:</strong> {{ currentUser.email }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="card shadow-lg mt-5">
+        <div class="card-header text-center">
+          Image
+        </div>
+        <div class="card-body">
+          <div class="file-upload">
+            <img src="{{ imgUrl }}" alt="image" class="img-thumbnail" />
+            <input
+              type="file"
+              name="image"
+              ng2FileSelect
+              [uploader]="uploader"
+              accept="image/x-png,image/gif,image/jpeg,image/png"
+            />
+            <button
+              type="button"
+              (click)="uploader.uploadAll()"
+              [disabled]="!uploader.getNotUploadedItems().length"
+            >
+              Upload
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
